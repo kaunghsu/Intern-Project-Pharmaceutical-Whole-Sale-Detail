@@ -18,20 +18,19 @@ def homepage(request):
     # context = {'h_data': h_data}
     return render (request, 'index.html')
 
-def meddetail(request):
-    # md_data = Diseases.objects.all()
-    # context = {'md_data':md_data}
-    return render(request, 'detail.html')
+def meddetail(request,id):
+    mdetail_data = Item.objects.get(id=id)
+    context = {'mdetail_data':mdetail_data}
+    return render(request, 'detail.html',context)
 
-def emedlist(request):
-    ml_data = Item.objects.all()
-    paginator = Paginator(ml_data, 2)
+
+def emedlist(request,id):
+    category_data = Category.objects.get(id=int(id))
+    ml_data = Item.objects.filter(category=category_data)
+
+    paginator = Paginator(ml_data, 1)
     page_number = request.GET.get("page")
-
-    
     page_obj = paginator.get_page(page_number)
-
-    
     return render(request, 'elist.html', {'ml_data':ml_data, 'page_obj':page_obj})
 
 
@@ -122,7 +121,17 @@ def addproduct(request):
 
 
 def shop_view(request):
-    return render(request,'shop.html' )
+    shopview_data = Item.objects.all()
+
+    paginator = Paginator(shopview_data, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'shop.html', {'shopview_data':shopview_data, 'page_obj':page_obj})
+
+
+    
+
+
 
 def cart_view(request):
     return render(request,'cart.html' )
@@ -173,7 +182,7 @@ class HomeView(UserRequiredMixin,View):
 def deleteitem(request,id):
     item_delete = Item.objects.filter(id=id)
     item_delete.delete()
-    return redirect('addproduct')
+    return redirect('medview')
 def deletedisease(request,id):
     disease_delete = Disease.objects.filter(id=id)
     disease_delete.delete()

@@ -23,8 +23,8 @@ from myapp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage, name= 'homepage' ),
-    path('medicinedetail/', meddetail, name= 'meddetail'),
-    path('emedicinelist/', emedlist, name= 'medlist'),
+    path('medicinedetail/<int:id>/', meddetail, name= 'meddetail'),
+    path('emedicinelist/<int:id>/', emedlist, name= 'medlist'),
     path('diseaseupdateview/<int:id>/', dis_updateview, name= 'dis_updateview'),
     path('diseaseview/', dis_view, name= 'diseaseview'),
     path('adddisease/', adddisease, name= 'adddisease'),

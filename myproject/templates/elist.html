@@ -54,8 +54,10 @@
 
 
 {% for i in page_obj %}
+
     <div class="container">
-    <img src="{{ i.item_photo.url }}"><br>
+    <img src="{{ i.item_photo.url }}" width="200px"><br>
+    
     {{ i.item_name|upper }}<br>
     {{i.item_quatity|upper}} <br>
     {{i.item_price|upper}}  <br>
@@ -64,6 +66,7 @@
     <button> <a href="">Detail</a> </button>
     <button> <a href="">Add to cart</a></button>
     </div>
+    
 {% endfor %}
 
 
