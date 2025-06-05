@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="container">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    <div class="mb-3">
+    <label for="formFile" class="form-label">Diseases Photo</label>
+    <input class="form-control" type="file" name="photo_fm" id="formFile">
+    <label for="text" class="form-label">Diseases Name</label>
+    <input class="form-control" type="text" name="name_fm" id="formtext">
+    <label for="text" class="form-label">Disease symptom</label>
+    <input class="form-control" type="text" name="sym_fm"  id="formtext">
+    <button type="submit">Update</button>
+    
+    </div>
+    </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container" align ="center" >
+<form action="" method ='post' enctype="multipart/form-data">{% csrf_token %}
+    <div><label for="a">Username:</label>      <input type="text" class="form-control w-50" name="user_fm" placeholder="Username" value=""  id="a"> 
+
+     </div> <br>
+     <div>
+    <label for="b">Enter your password:</label>      <input type="text" class="form-control w-50" name="password1_fm" placeholder="Enter your password:" value="" id="b">
+
+    </div> <br>
+    <div>
+    <label for="c">Confirm Password: </label>      <input type="text" class="form-control w-50" name="password1_fm" placeholder="Confirm Password:" value="" id="c"> 
+
+    </div> <br>
+    <div>
+    <label for="d">firstname: </label>      <input type="text" class="form-control w-50" name="firstname_fm" placeholder="firstname" value="" id="d"> 
+
+    </div> <br>
+    <div>
+    <label for="e">lastname:</label>        <input type="text" class="form-control w-50" name="lastname_fm" placeholder="lastname"  value="" id="e"> 
+
+    </div> <br>
+    <button type="submit" class="btn btn-primary btn-lg btn-block w-25">Submit</button> <br>
+
+</form>
+</div>
+{% endblock content %}

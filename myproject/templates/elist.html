@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<!-- <div id="mylist"></div> -->
+
+
+
+<!-- <script>
+    $('.Updatebtn').click(
+        function () {
+            var currentrow = $(this).closest('.mylist1');
+            var pid = currentrow.find('.pid').html();
+            alert(pid);
+            $.ajax({/
+                url: "/emedicinelist/",
+                method: "",
+                data: {},
+                success: function (response) {
+
+                    (response.el_data).forEach(data =>{
+                        var mydata =`<h1>${data.task}</a>
+                                    <a href="/admin/">${data.amount}</a>`
+                    };
+                    
+                        console.log(element.);
+
+                    
+                    });
+                )
+    
+    
+        
+
+    var apiurl = ''
+    fetch(
+
+    ).then(
+        data => {
+            console.log
+        }
+        
+    )
+
+
+
+</script> -->
+
+
+
+
+
+
+{% for i in page_obj %}
+    <div class="container">
+    <img src="{{ i.item_photo.url }}"><br>
+    {{ i.item_name|upper }}<br>
+    {{i.item_quatity|upper}} <br>
+    {{i.item_price|upper}}  <br>
+    {{i.item_description|upper}} <br>
+    {{i.exp_date|upper}} <br>
+    <button> <a href="">Detail</a> </button>
+    <button> <a href="">Add to cart</a></button>
+    </div>
+{% endfor %}
+
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="">
+        
+        <class="page-item"><a class="page-link" href="?page=1">1</a>
+        <class="page-item"><a class="page-link" href="?page=2">2</a>
+        
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+    </span>
+</div>
+{% endblock content %}
+
+<!-- <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav> -->

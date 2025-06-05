@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+{% for i in ml_data %}
+<div class="container">
+    {{i.eb_diseases}} <br>
+    {{i.eb_name}} <br>
+    {{i.eb_data}} <br>
+    {{i.eb_price}} <br>
+    <button> <a href="">Detail</a> </button>
+    <button> <a href="">Add to cart</a></button>
+
+    <hr>
+</div>
+
+{% endblock content %}
